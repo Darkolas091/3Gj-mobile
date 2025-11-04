@@ -1,6 +1,6 @@
-
 using UnityEngine;
 
+[RequireComponent(typeof(SphereGizmo))]
 public class EnemySpawning : MonoBehaviour
 {
     //obican spawn sa strana
@@ -23,12 +23,13 @@ public class EnemySpawning : MonoBehaviour
         {
             spawnTimer -= Time.deltaTime;
         }
+
         if (spawnTimer <= 0)
         {
-            EnemyMovement enemyMovement = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+            EnemyMovement enemyMovement = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation, transform);
+
             enemyMovement.playerTarget = playerTarget;
 
-            
             spawnTimer = Random.Range(minSpawnInterval, maxSpawnInterval);
         }
     }
