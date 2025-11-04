@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CharacterController : MonoBehaviour
+public class CharacterControl : MonoBehaviour
 {
     [SerializeField] private InputActionReference moveActionToUse;
     [SerializeField] private float speed;
