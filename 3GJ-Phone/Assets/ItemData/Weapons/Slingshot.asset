@@ -13,11 +13,5 @@ MonoBehaviour:
   m_Name: Slingshot
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Slingshot
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 73569e9f3df20fe459f60eb418a377d6, type: 3}
   plantCost: 50
-  turretPrefab: {fileID: 0}
-  damage: 10
-  fireRate: 1
-  range: 5
-  ammoPerShot: 1
-  hasUnlimitedAmmo: 0

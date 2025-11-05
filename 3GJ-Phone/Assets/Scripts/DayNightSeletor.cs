@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class DayNightItemSelector : MonoBehaviour
+public class DayNightSelector : MonoBehaviour
 {
     [Header("UI References")]
     [SerializeField] private Image buttonIcon;
     [SerializeField] private Image buttonBackground;
     [SerializeField] private Button selectButton;
-    [SerializeField] private Text itemCounterText;
-    [SerializeField] private Text itemNameText;
+    [SerializeField] private TMP_Text itemCounterText;
+    [SerializeField] private TMP_Text itemNameText;
 
     [Header("Visual Settings")]
     [SerializeField] private Color dayColor = new Color(1f, 0.9f, 0.4f);
