@@ -6,6 +6,8 @@ public class CharacterControl : MonoBehaviour
     [SerializeField] private InputActionReference moveActionToUse;
     [SerializeField] private float speed;
 
+    
+
 
     void Start()
     {
