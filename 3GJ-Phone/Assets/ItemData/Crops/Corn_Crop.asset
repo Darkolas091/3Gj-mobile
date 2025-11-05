@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba592f3cf9486354f8756de36127f3d5, type: 3}
-  m_Name: Slingshot
+  m_Name: Corn_Crop
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Slingshot
-  itemIcon: {fileID: 21300000, guid: 73569e9f3df20fe459f60eb418a377d6, type: 3}
-  itemType: 2
+  itemName: Corn
+  itemIcon: {fileID: 21300000, guid: eace7eb4234834c4cae1248b3aa32ea2, type: 3}
+  itemType: 1
   buyCost: 50
   sellValue: 25
   growthTime: 1

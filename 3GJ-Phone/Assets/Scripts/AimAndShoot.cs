@@ -18,6 +18,11 @@ public class AimAndShoot : MonoBehaviour
 
         if (enemy != null)
         {
+            if (weapon == null || barrel == null || bulletPrefab == null)
+            {
+                Debug.LogWarning("AimAndShoot: Missing weapon, barrel, or bulletPrefab reference.");
+                return;
+            }
             RotateTowards();
             Shoot();
         }
@@ -56,7 +61,6 @@ public class AimAndShoot : MonoBehaviour
 
         GameObject newBullet = Instantiate(bulletPrefab, barrel.position, barrel.rotation);
 
-       
         Rigidbody rb = newBullet.GetComponent<Rigidbody>();
         if (rb != null)
         {

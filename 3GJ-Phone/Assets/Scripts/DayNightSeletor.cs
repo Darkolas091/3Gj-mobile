@@ -5,20 +5,23 @@ using TMPro;
 
 public class DayNightSelector : MonoBehaviour
 {
-    [Header("UI References")]
-    [SerializeField] private Image buttonIcon;
+    [Header("UI References")] [SerializeField]
+    private Image buttonIcon;
+
     [SerializeField] private Image buttonBackground;
     [SerializeField] private Button selectButton;
     [SerializeField] private TMP_Text itemCounterText;
     [SerializeField] private TMP_Text itemNameText;
 
-    [Header("Visual Settings")]
-    [SerializeField] private Color dayColor = new Color(1f, 0.9f, 0.4f);
+    [Header("Visual Settings")] [SerializeField]
+    private Color dayColor = new Color(1f, 0.9f, 0.4f);
+
     [SerializeField] private Color nightColor = new Color(0.2f, 0.2f, 0.5f);
     [SerializeField] private float transitionDuration = 0.3f;
 
-    [Header("Item Lists")]
-    [SerializeField] private List<ItemData> vegetables = new List<ItemData>();
+    [Header("Item Lists")] [SerializeField]
+    private List<ItemData> vegetables = new List<ItemData>();
+
     [SerializeField] private List<ItemData> weapons = new List<ItemData>();
 
 
@@ -28,13 +31,11 @@ public class DayNightSelector : MonoBehaviour
 
     private void OnEnable()
     {
-
         GameManager.OnGameStateChanged += OnGameStateChanged;
     }
 
     private void OnDisable()
     {
-
         GameManager.OnGameStateChanged -= OnGameStateChanged;
     }
 
@@ -59,7 +60,6 @@ public class DayNightSelector : MonoBehaviour
 
     private System.Collections.IEnumerator TransitionToNewState()
     {
-
         float elapsed = 0;
         Color startColor = buttonBackground.color;
         Color targetColor = currentState == GameManager.GameState.Day ? dayColor : nightColor;
@@ -173,6 +173,7 @@ public class DayNightSelector : MonoBehaviour
         {
             return weapons[currentWeaponIndex];
         }
+
         return null;
     }
 
@@ -208,4 +209,3 @@ public class DayNightSelector : MonoBehaviour
     public System.Action<ItemData> OnVegetableSelected;
     public System.Action<ItemData> OnWeaponSelected;
 }
-
