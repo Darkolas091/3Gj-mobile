@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ui : MonoBehaviour
 {
@@ -9,8 +10,32 @@ public class ui : MonoBehaviour
     public GameObject mainMenu;
     public GameObject gameOverScreen;
     public GameObject optionsPanel;
-    public GameObject howToPlayPanel; 
+    public GameObject howToPlayPanel;
 
+    [Header("Audio Settings")]
+    public Slider volumeSlider;
+    //public AudioSource audioSource; 
+                                    
+
+    void Start()
+    {
+       
+        float savedVolume = PlayerPrefs.GetFloat("MasterVolume", 0.5f);
+        volumeSlider.value = savedVolume;
+        AudioListener.volume = savedVolume;
+
+       
+        volumeSlider.onValueChanged.AddListener(SetVolume);
+    }
+
+    public void SetVolume(float volume)
+    {
+        AudioListener.volume = volume; 
+
+
+        PlayerPrefs.SetFloat("MasterVolume", volume);
+        PlayerPrefs.Save();
+    }
     public void ShowMainMenu()
     {
         mainMenu.SetActive(true);
