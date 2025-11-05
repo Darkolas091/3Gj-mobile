@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Day/Night Settings")]
     [SerializeField] private Light sun;
-    [SerializeField] private float dayDuration = 120f;   
+    [SerializeField] private float dayDuration = 120f;
     [SerializeField] private float nightDuration = 60f;
+    [SerializeField] private AnimationCurve sunCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+
     private float time;
     private float cycleDuration;
 
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
+
         if (time >= cycleDuration)
             time = 0f;
 
@@ -39,13 +42,32 @@ public class GameManager : MonoBehaviour
 
     private void RotateSun()
     {
-       
-        float angle = (time / cycleDuration) * 360f;
-        sun.transform.rotation = Quaternion.Euler(angle - 90f, 170f, 0f);
+        float angle;
+        float intensityFactor;
 
-       
-        float t = Mathf.Sin((time / cycleDuration) * Mathf.PI * 2f) * 0.5f + 0.5f;
-        sun.intensity = Mathf.Lerp(0.1f, 1f, t);
+        if (time < dayDuration)
+        {
+           
+            float dayProgress = time / dayDuration;
+
+            
+            float curvedProgress = sunCurve.Evaluate(dayProgress);
+            angle = curvedProgress * 180f;
+
+            
+            intensityFactor = Mathf.Sin(curvedProgress * Mathf.PI);
+        }
+        else
+        {
+            
+            float nightProgress = (time - dayDuration) / nightDuration;
+            float curvedProgress = sunCurve.Evaluate(nightProgress);
+            angle = 180f + (curvedProgress * 180f);
+            intensityFactor = 0f;
+        }
+
+        sun.transform.rotation = Quaternion.Euler(-angle + 90f, 170f, 0f);
+        sun.intensity = Mathf.Lerp(0.1f, 1f, intensityFactor);
     }
 
     private void UpdateState()
