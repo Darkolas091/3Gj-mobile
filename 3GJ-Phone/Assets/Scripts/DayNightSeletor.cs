@@ -19,14 +19,11 @@ public class DayNightSelector : MonoBehaviour
     [SerializeField] private Color nightColor = new Color(0.2f, 0.2f, 0.5f);
     [SerializeField] private float transitionDuration = 0.3f;
 
-    [Header("Item Lists")] [SerializeField]
-    private List<ItemData> vegetables = new List<ItemData>();
-
-    [SerializeField] private List<ItemData> weapons = new List<ItemData>();
-
-
     private GameManager.GameState currentState;
-    private int currentVegetableIndex = 0;
+
+    private List<ItemData> seeds = new List<ItemData>();
+    private List<ItemData> weapons = new List<ItemData>();
+    private int currentSeedIndex = 0;
     private int currentWeaponIndex = 0;
 
     private void OnEnable()
@@ -41,9 +38,9 @@ public class DayNightSelector : MonoBehaviour
 
     private void Start()
     {
+        seeds = InventoryManager.instance.GetAllSeeds();
+        weapons = InventoryManager.instance.GetAllUnlockedWeapons();
         selectButton.onClick.AddListener(OnButtonClick);
-
-
         if (GameManager.instance != null)
         {
             currentState = GameManager.instance.state;
@@ -95,7 +92,7 @@ public class DayNightSelector : MonoBehaviour
 
         if (currentState == GameManager.GameState.Day)
         {
-            CycleVegetable();
+            CycleSeed();
         }
         else
         {
@@ -105,27 +102,22 @@ public class DayNightSelector : MonoBehaviour
         StartCoroutine(ButtonPressAnimation());
     }
 
-    private void CycleVegetable()
+    private void CycleSeed()
     {
-        if (vegetables.Count == 0) return;
-
-        currentVegetableIndex = (currentVegetableIndex + 1) % vegetables.Count;
+        seeds = InventoryManager.instance.GetAllSeeds();
+        if (seeds.Count == 0) return;
+        currentSeedIndex = (currentSeedIndex + 1) % seeds.Count;
         UpdateVisuals();
-
-
-        OnVegetableSelected?.Invoke(vegetables[currentVegetableIndex]);
-
-        Debug.Log($"Selected Vegetable: {vegetables[currentVegetableIndex].itemName}");
+        OnSeedSelected?.Invoke(seeds[currentSeedIndex]);
+        Debug.Log($"Selected Seed: {seeds[currentSeedIndex].itemName}");
     }
 
     private void CycleWeapon()
     {
+        weapons = InventoryManager.instance.GetAllUnlockedWeapons();
         if (weapons.Count == 0) return;
-
         currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
         UpdateVisuals();
-
-
         OnWeaponSelected?.Invoke(weapons[currentWeaponIndex]);
 
         Debug.Log($"Selected Weapon: {weapons[currentWeaponIndex].itemName}");
@@ -134,27 +126,22 @@ public class DayNightSelector : MonoBehaviour
     private void UpdateVisuals()
     {
         ItemData currentItem = GetCurrentItem();
-
         if (currentItem != null)
         {
             buttonIcon.sprite = currentItem.itemIcon;
-
             if (itemNameText != null)
             {
                 itemNameText.text = currentItem.itemName;
             }
         }
-
-
         Color targetColor = currentState == GameManager.GameState.Day ? dayColor : nightColor;
         buttonBackground.color = targetColor;
-
-
         if (itemCounterText != null)
         {
             if (currentState == GameManager.GameState.Day)
             {
-                itemCounterText.text = $"{currentVegetableIndex + 1}/{vegetables.Count}";
+                int quantity = InventoryManager.instance.GetSeedQuantity(currentItem);
+                itemCounterText.text = $"x{quantity}";
             }
             else
             {
@@ -165,9 +152,9 @@ public class DayNightSelector : MonoBehaviour
 
     public ItemData GetCurrentItem()
     {
-        if (currentState == GameManager.GameState.Day && vegetables.Count > 0)
+        if (currentState == GameManager.GameState.Day && seeds.Count > 0)
         {
-            return vegetables[currentVegetableIndex];
+            return seeds[currentSeedIndex];
         }
         else if (currentState == GameManager.GameState.Night && weapons.Count > 0)
         {
@@ -206,6 +193,6 @@ public class DayNightSelector : MonoBehaviour
     }
 
 
-    public System.Action<ItemData> OnVegetableSelected;
+    public System.Action<ItemData> OnSeedSelected;
     public System.Action<ItemData> OnWeaponSelected;
 }
