@@ -921,11 +921,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 7c4d6ebf-3c71-44f5-9645-0f5d931d53bb
+  cloudProjectId: c5fb1b3e-333c-4c1b-a96e-b21af20a0824
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Graveyard Grow
-  organizationId: unity_d4209bbd5ff0fd576add
+  projectName: 3GJ-Phone
+  organizationId: thedarkcro
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

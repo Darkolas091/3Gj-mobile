@@ -10,8 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba592f3cf9486354f8756de36127f3d5, type: 3}
-  m_Name: Tomato
+  m_Name: Tomato_Seed
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Tomato
+  itemName: Tomato Seed
   itemIcon: {fileID: 21300000, guid: 3424944a1c5213b47b4330f922e12d4d, type: 3}
-  plantCost: 50
+  itemType: 0
+  buyCost: 50
+  sellValue: 25
+  growthTime: 1
+  plantedPhaseSprite: {fileID: 0}
+  growingPhaseSprite: {fileID: 0}
+  grownPhaseSprite: {fileID: 0}
+  seedType: 0
+  turretPrefab: {fileID: 0}
