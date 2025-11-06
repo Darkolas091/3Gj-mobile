@@ -29,6 +29,7 @@ public class ui : MonoBehaviour
 
 
         volumeSlider.onValueChanged.AddListener(SetVolume);
+        audioSource.Play();
     }
 
     public void SetVolume(float volume)
@@ -82,6 +83,7 @@ public class ui : MonoBehaviour
     }
     public void ExitGame()
     {
+        Debug.Log("Quitting game...");
         Application.Quit();
     }
     public void BackToMainMenu()
@@ -124,5 +126,35 @@ public class ui : MonoBehaviour
         howToPlay.SetActive(false);
         credits.SetActive(true);
     }
+    public void ResumeGame()
+    {
+        PausePanel.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+    public void ButtomResumeGame()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PausePanels();
+            }
+        }
+    }
+    public void BackToOptionsPanel()
+    {
+        mainMenu.SetActive(false);
+        optionsPanel.SetActive(true);
+        gameOverScreen.SetActive(false);
+        PausePanel.SetActive(false);
+        howToPlay.SetActive(false);
+        credits.SetActive(false);
+    }
+ 
 }
    
