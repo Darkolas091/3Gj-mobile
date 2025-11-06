@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 3036274019257507410}
   - component: {fileID: 6757839699211826609}
   - component: {fileID: 5944223088200682553}
+  - component: {fileID: 367016989574796341}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -199,6 +200,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6d672a03d346f9914551787c7d2a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTarget
+--- !u!114 &367016989574796341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768085609652564977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02324d2c8c94444881a88edb7094d3d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWallet
+  currency: 500
 --- !u!1001 &2570876128082294756
 PrefabInstance:
   m_ObjectHideFlags: 0

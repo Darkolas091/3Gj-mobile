@@ -13,7 +13,7 @@ public class GameGrid : MonoBehaviour
     [SerializeField] private GameObject hitted;
 
     private Camera mainCam;
-    public bool creatingField;
+    private bool creatingField;
 
     void Start()
     {

@@ -119,7 +119,6 @@ public class DayNightSelector : MonoBehaviour
         currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
         UpdateVisuals();
         OnWeaponSelected?.Invoke(weapons[currentWeaponIndex]);
-
         Debug.Log($"Selected Weapon: {weapons[currentWeaponIndex].itemName}");
     }
 
