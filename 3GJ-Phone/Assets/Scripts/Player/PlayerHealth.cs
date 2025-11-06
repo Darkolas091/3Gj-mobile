@@ -20,12 +20,30 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHearts -= damage;
         if (currentHearts < 0) currentHearts = 0;
+        
+        SoundEffectManager.PlaySoundEffect("PlayerHit");
+        
         UpdateHeartUI();
+        
         if (currentHearts == 0)
         {
-            Debug.Log("Player Dead");
-            // TODO: Handle player death (respawn, game over, etc.)
+            Die();
         }
+    }
+    
+    public void TakeOneDamage()
+    {
+        TakeDamage(1);
+    }
+
+    private void Die()
+    {
+        Debug.Log("Player Dead");
+        
+        SoundEffectManager.PlaySoundEffect("PlayerDeath");
+        
+         GameOverManager.Instance?.TriggerGameOver(GameOverManager.LoseReason.PlayerDied);
+
     }
 
     private void UpdateHeartUI()

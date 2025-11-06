@@ -27,7 +27,13 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         isDead = true;
-        // Add death logic here (e.g., play animation, disable enemy, etc.)
-        Debug.Log($"{gameObject.name} has died.");
+        
+        // Play death sound
+        SoundEffectManager.PlaySoundEffect("EnemyDeath");
+        
+        // TODO: Spawn death VFX, drop currency/items, etc.
+        
+        // Destroy the enemy
+        Destroy(gameObject);
     }
 }

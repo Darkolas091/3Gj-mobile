@@ -32,10 +32,20 @@ public class SoundEffectManager : MonoBehaviour
 
     public static void PlaySoundEffect(string soundName)
     {
+        if (Instance == null || soundEffectLibrary == null || audioSource == null)
+        {
+            Debug.LogWarning($"SoundEffectManager not ready. Cannot play: {soundName}");
+            return;
+        }
+        
         AudioClip clip = soundEffectLibrary.GetRandomSoundEffect(soundName);
         if (clip != null)
         {
             audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.LogWarning($"Sound effect '{soundName}' not found in library.");
         }
     }
 

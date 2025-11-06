@@ -7,17 +7,18 @@ public class EnemySpawning : MonoBehaviour
 {
     //obican spawn sa strana
     [SerializeField] private Transform playerTarget;
-    [SerializeField] private EnemyMovement enemyPrefab;
+    [SerializeField] private GhostAI enemyPrefab;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float minSpawnInterval = 2f;
     [SerializeField] private float maxSpawnInterval = 5f;
 
     private float spawnTimer;
     private bool canSpawn = false;
-    private List<EnemyMovement> spawnedEnemies = new List<EnemyMovement>();
+    private List<GhostAI> spawnedEnemies = new List<GhostAI>();
 
     private void OnEnable()
     {
+        
         GameManager.OnGameStateChanged += OnGameStateChanged;
     }
 
@@ -41,8 +42,8 @@ public class EnemySpawning : MonoBehaviour
         }
         if (spawnTimer <= 0)
         {
-            EnemyMovement enemyMovement = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation, transform);
-            spawnedEnemies.Add(enemyMovement);
+            GhostAI ghostAI = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation, transform);
+            spawnedEnemies.Add(ghostAI);
             spawnTimer = UnityEngine.Random.Range(minSpawnInterval, maxSpawnInterval);
         }
     }
