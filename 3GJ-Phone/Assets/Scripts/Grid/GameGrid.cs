@@ -181,8 +181,11 @@ public class GameGrid : MonoBehaviour
         }
         else
         {
+            Destroy(selectedTile.gameObject);
             Debug.Log("Planted!");
             Instantiate(field, selectedTile.transform.position, Quaternion.identity);
+
+            
         }
 
         HideButton();
