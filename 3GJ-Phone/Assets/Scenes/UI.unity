@@ -913,8 +913,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " \nProgrammers\nDarko Sever\nIvana Antunovi\u0107\nBruno Mihel\u010Di\u0107\nNikolina
-    \u010Cavlovi\u0107\nFran Nova\u010Di\u0107\n"
+  m_text: " \nProgrammers:\nDarko Sever\nIvana Antunovic\nBruno Mihelcic\nNikolina
+    Cavlovic\nFran Novacic\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c264ef5731e709499998095aedd4a57, type: 2}
   m_sharedMaterial: {fileID: 2754139275361748882, guid: 5c264ef5731e709499998095aedd4a57, type: 2}
@@ -4527,7 +4527,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Artists:\nMaria Cvetkovski\nMagdalena\nDragan Tadi\u0107\nAdrian Gubi\u0107\n\n"
+  m_text: 'Artists:
+
+    Maria Cvetkovski
+
+    Magdalena Sisko
+
+    Dragan Tadic
+
+    Adrian
+    Gubic
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c264ef5731e709499998095aedd4a57, type: 2}
   m_sharedMaterial: {fileID: 2754139275361748882, guid: 5c264ef5731e709499998095aedd4a57, type: 2}
