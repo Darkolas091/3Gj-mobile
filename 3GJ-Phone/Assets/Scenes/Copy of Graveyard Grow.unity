@@ -3068,6 +3068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 1093435151022610057, guid: aad7db14ad0bc0b4fbc7a5f4afecf7e7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5363958267040910756, guid: aad7db14ad0bc0b4fbc7a5f4afecf7e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3226,6 +3230,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4915965076489661963, guid: b84685edd3f3f0642b395ef55bcde971, type: 3}
+      propertyPath: soundEffectGroups.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5148220808794219431, guid: b84685edd3f3f0642b395ef55bcde971, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3287,6 +3295,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5138074366887805382, guid: c21233f3b57bc754f84412b4001a485a, type: 3}
+      propertyPath: inspectorSongIndex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5735573127989039387, guid: c21233f3b57bc754f84412b4001a485a, type: 3}
       propertyPath: m_Name
       value: '#MusicManager'

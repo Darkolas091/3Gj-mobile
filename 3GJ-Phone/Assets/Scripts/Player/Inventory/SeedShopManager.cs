@@ -62,4 +62,9 @@ public class SeedShopManager : MonoBehaviour
             Debug.Log("Not enough currency!");
         }
     }
+    
+    public void ToggleShop()
+    {
+        shopPanel.SetActive(!shopPanel.activeSelf);
+    }
 }
