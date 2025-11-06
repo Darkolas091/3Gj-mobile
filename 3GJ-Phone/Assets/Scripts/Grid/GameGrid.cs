@@ -26,7 +26,7 @@ public class GameGrid : MonoBehaviour
             float xPos = x_space * (i % columnLength);
             float zPos = z_space * (i / columnLength);
 
-            Instantiate(grass, new Vector3(xPos, 0, zPos), Quaternion.identity);
+            Instantiate(grass, new Vector3(xPos, 0, zPos), Quaternion.identity, transform);
         }
     }
 

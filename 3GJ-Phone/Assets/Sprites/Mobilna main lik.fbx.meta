@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: zenski lik moba
-    second: {fileID: 2800000, guid: f4b81061c909e6941b03a95eb574a149, type: 3}
+    second: {fileID: 2800000, guid: 8b6eb854fe429bb45b0d81ea9baacd7c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

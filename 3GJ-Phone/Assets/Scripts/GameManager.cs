@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
         if (time >= cycleDuration)
             time = 0f;
 
-        RotateSun();
         UpdateState();
     }
 
