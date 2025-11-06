@@ -734,6 +734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 345907389}
   - component: {fileID: 345907390}
+  - component: {fileID: 345907391}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -796,6 +797,25 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   state: 0
+--- !u!114 &345907391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345907387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f667d9fbe857414395af12a9b589375b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
+  seeds:
+  - seedData: {fileID: 11400000, guid: 0504ab65f2191bd4e8601a528cf88808, type: 2}
+    quantity: 0
+  - seedData: {fileID: 11400000, guid: 87505ca05b6ceef4a92c6d71a5245c43, type: 2}
+    quantity: 0
+  unlockedWeapons:
+  - {fileID: 11400000, guid: 1d2b1544f03f08c4db8fcefd8f5e9b7f, type: 2}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
