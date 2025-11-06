@@ -20,7 +20,6 @@ public class SeedShopManager : MonoBehaviour
 
     private void LoadAllSeeds()
     {
-        // Assumes all seeds are in Resources/Seeds
         ItemData[] seeds = Resources.LoadAll<ItemData>("Seeds");
         allSeeds = new List<ItemData>(seeds);
         Debug.Log($"Loaded seeds count: {allSeeds.Count}");
@@ -61,5 +60,10 @@ public class SeedShopManager : MonoBehaviour
         {
             Debug.Log("Not enough currency!");
         }
+    }
+    
+    public void ToggleShop()
+    {
+        shopPanel.SetActive(!shopPanel.activeSelf);
     }
 }

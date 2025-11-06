@@ -9,14 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3738985921921525963}
-  - component: {fileID: 2716931630427215748}
+  - component: {fileID: -3198381461559310970}
   - component: {fileID: 6706733710346654676}
   - component: {fileID: 7407158559808230832}
-  - component: {fileID: 5554351607223946797}
-  - component: {fileID: 8217466571971607407}
+  - component: {fileID: 2910756985882054132}
+  - component: {fileID: 5550073274703249632}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ Transform:
   - {fileID: 3060979717410170581}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2716931630427215748
+--- !u!114 &-3198381461559310970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,11 +46,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8353728904505455403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0172c916335b664eb379831b397bbd6, type: 3}
+  m_Script: {fileID: 11500000, guid: da7fe08bb9504eadafaa8ba0e264deb2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  movementSpeed: 2
-  detectionRadius: 5
+  m_EditorClassIdentifier: Assembly-CSharp::GhostAI
+  movementSpeed: 5
+  detectionRadius: 10
   damage: 1
 --- !u!114 &6706733710346654676
 MonoBehaviour:
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e475667419341249abcae0c4a6e3dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxhealth: 10
+  maxhealth: 3
 --- !u!114 &7407158559808230832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,43 +79,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SphereGizmo
   radius: 5
   gizmoColor: {r: 0.9716981, g: 0.7287736, b: 0.7287736, a: 1}
---- !u!50 &5554351607223946797
-Rigidbody2D:
-  serializedVersion: 5
+--- !u!54 &2910756985882054132
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8353728904505455403}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_Constraints: 0
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!70 &8217466571971607407
-CapsuleCollider2D:
+--- !u!136 &5550073274703249632
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8353728904505455403}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -124,25 +121,14 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.65
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8921369181899955244
 GameObject:
   m_ObjectHideFlags: 0

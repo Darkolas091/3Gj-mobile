@@ -75,27 +75,66 @@ public class GhostAI : MonoBehaviour
             target = nearestTombstone;
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        var playerTarget = other.gameObject.GetComponent<PlayerTarget>();
-        var towerTarget = other.gameObject.GetComponent<TowerTarget>();
-        var tombstoneTarget = other.gameObject.GetComponent<TombstoneTarget>();
+        Debug.Log($"Ghost OnTriggerEnter with: {other.gameObject.name}");
+        HandleContact(other.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log($"Ghost OnCollisionEnter with: {collision.gameObject.name}");
+        HandleContact(collision.gameObject);
+    }
+
+    private void HandleContact(GameObject contactObject)
+    {
+        var playerTarget = contactObject.GetComponent<PlayerTarget>();
+        var towerTarget = contactObject.GetComponent<TowerTarget>();
+        var tombstoneTarget = contactObject.GetComponent<TombstoneTarget>();
+        
         if (playerTarget != null)
         {
-            var playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+            Debug.Log("Ghost hit player!");
+            var playerHealth = contactObject.GetComponent<PlayerHealth>();
             if (playerHealth != null)
+            {
                 playerHealth.TakeDamage(damage);
+                Debug.Log($"Dealt {damage} damage to player");
+            }
             Die();
         }
-        else if (towerTarget != null || tombstoneTarget != null)
+        else if (towerTarget != null)
         {
-            // TODO: Implement tower/tombstone health
+            Debug.Log("Ghost hit tower!");
+            var towerHealth = contactObject.GetComponent<TowerHealth>();
+            if (towerHealth != null)
+            {
+                towerHealth.TakeDamage(damage);
+                Debug.Log($"Dealt {damage} damage to tower");
+            }
             Die();
+        }
+        else if (tombstoneTarget != null)
+        {
+            Debug.Log("Ghost hit tombstone!");
+            var tombstoneHealth = contactObject.GetComponent<TombstoneHealth>();
+            if (tombstoneHealth != null)
+            {
+                tombstoneHealth.TakeDamage(damage);
+                Debug.Log($"Dealt {damage} damage to tombstone");
+            }
+            Die();
+        }
+        else
+        {
+            Debug.Log($"Ghost contacted {contactObject.name} but found no valid target component");
         }
     }
 
     private void Die()
     {
+        Debug.Log("Ghost dying");
         Destroy(gameObject);
     }
 }
