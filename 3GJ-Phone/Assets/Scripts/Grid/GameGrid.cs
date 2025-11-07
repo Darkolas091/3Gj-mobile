@@ -38,10 +38,7 @@ public class GameGrid : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float interactionDistance = 3f;
 
-    [Header("Water System")]
-    [SerializeField] private int waterAmount = 100;
-    [SerializeField] private int waterCostPerUse = 10;
-    [SerializeField] private TMP_Text waterText; // Optional: to display water amount
+    [Header("Visual")]
     [SerializeField] private Color wateredColor = new Color(0.7f, 0.9f, 1f, 1f); // Light blue tint for watered plants
     [SerializeField] private Color normalColor = Color.white; // Normal plant color
 
@@ -82,7 +79,6 @@ public class GameGrid : MonoBehaviour
         CreatePremiumGrid(columnLength3, rowLength3, x_space3, z_space3, gridStartPosition3);
         CreatePremiumGrid(columnLength4, rowLength4, x_space4, z_space4, gridStartPosition4);
 
-        UpdateWaterDisplay();
         UpdateMoneyDisplay();
         
         // Subscribe to game state changes to detect new day
@@ -235,7 +231,7 @@ public class GameGrid : MonoBehaviour
                     }
                     else
                     {
-                        ShowButton($"Water (-{waterCostPerUse})");
+                        ShowButton("Water");
                     }
                 }
                 else
@@ -317,19 +313,9 @@ public class GameGrid : MonoBehaviour
                 return;
             }
 
-            // Check if we have enough water
-            if (waterAmount < waterCostPerUse)
-            {
-                Debug.Log("Not enough water!");
-                return;
-            }
-
-            // Water the plant - consume water and mark as watered
+            // Water the plant
             if (plantObjects.ContainsKey(pos))
             {
-                waterAmount -= waterCostPerUse;
-                UpdateWaterDisplay();
-                
                 wateredToday[pos] = true; // Mark as watered today
                 
                 // Initialize growth stage if needed
@@ -356,7 +342,7 @@ public class GameGrid : MonoBehaviour
                     }
                 }
                 
-                Debug.Log($"PLANT WATERED! Color changed to show watered state. It will grow at the start of the next day. Water remaining: {waterAmount}");
+                Debug.Log($"PLANT WATERED! Color changed to show watered state. It will grow at the start of the next day.");
             }
             else
             {
@@ -414,13 +400,6 @@ public class GameGrid : MonoBehaviour
         );
     }
 
-    private void UpdateWaterDisplay()
-    {
-        if (waterText != null)
-        {
-            waterText.text = $"Water: {waterAmount}";
-        }
-    }
 
     private void UpdateMoneyDisplay()
     {
@@ -610,19 +589,5 @@ public class GameGrid : MonoBehaviour
                 premiumTilePositions.Add(pos);
             }
         }
-    }
-
-    // Public method to add water (for pickups, shop, etc.)
-    public void AddWater(int amount)
-    {
-        waterAmount += amount;
-        UpdateWaterDisplay();
-        Debug.Log($"Added {amount} water. Total: {waterAmount}");
-    }
-
-    // Public method to get current water amount
-    public int GetWaterAmount()
-    {
-        return waterAmount;
     }
 }
