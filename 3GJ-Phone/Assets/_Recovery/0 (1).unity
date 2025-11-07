@@ -873,7 +873,7 @@ MonoBehaviour:
   weaponType: 0
   bulletPrefab: {fileID: 4700337277998773935, guid: efbe237bfd1a93647832d644067352af, type: 3}
   firePoint: {fileID: 1724430870}
-  shootRange: 14
+  shootRange: 10
   shootCooldown: 0.5
   bulletSpeed: 20
   meleeRange: 2
@@ -3459,7 +3459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &220690080
@@ -5669,8 +5669,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 6.05, z: -10}
+  m_LocalRotation: {x: 2.3282967e-10, y: -1.4837232e-20, z: 5.4123974e-23, w: 1}
+  m_LocalPosition: {x: 0, y: 2.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6182,7 +6182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   sun: {fileID: 410087040}
-  dayDuration: 20
+  dayDuration: 1
   nightDuration: 25
   sunCurve:
     serializedVersion: 2
@@ -19692,7 +19692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1053408102
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24123,6 +24123,9 @@ MonoBehaviour:
   buttonText: {fileID: 1445888577}
   player: {fileID: 31616120}
   interactionDistance: 3
+  waterAmount: 100
+  waterCostPerUse: 10
+  waterText: {fileID: 1053408103}
   wateredColor: {r: 0.7, g: 0.9, b: 1, a: 1}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   plantCost: 10
@@ -26058,7 +26061,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727416823}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 40d7658165415e7418be5c11c45e4ffb, type: 2}
   m_CullingMode: 0
@@ -27548,14 +27551,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 397a0ecc45397f24aba16e9737c07ce1, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 397a0ecc45397f24aba16e9737c07ce1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7036213049465896255, guid: 397a0ecc45397f24aba16e9737c07ce1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35615,7 +35610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba10432cfd7244ed9b85d5646ef335a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombstoneHealth
-  maxHealth: 30
+  maxHealth: 1
   destroyedVFX: {fileID: 0}
 --- !u!114 &1980505380
 MonoBehaviour:
