@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         UpdateState();
     }
 
-    private void RotateSun()
+    private void RotateSun()//Dont call this method
     {
         float angle;
         float intensityFactor;

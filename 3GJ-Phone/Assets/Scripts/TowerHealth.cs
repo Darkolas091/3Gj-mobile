@@ -36,6 +36,8 @@ public class TowerHealth : MonoBehaviour
             Instantiate(destroyedVFX, transform.position, Quaternion.identity);
         }
         
+        // The TurretPlotTracker component (if present) will handle notifying the grid
+        // when OnDestroy is called
         Destroy(gameObject);
     }
 }
