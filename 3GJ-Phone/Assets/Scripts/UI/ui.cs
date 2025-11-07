@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class ui : MonoBehaviour
 {
     public static bool isRestart = false;
-    [Header("UI Panels")]
-    public GameObject mainMenu;
+    [Header("UI Panels")] public GameObject mainMenu;
     public GameObject gameOverScreen;
     public GameObject optionsPanel;
     public GameObject PausePanel;
@@ -19,8 +18,7 @@ public class ui : MonoBehaviour
     public Button scene;
     private bool isPaused = false;
 
-    [Header("Audio Settings")]
-    public Slider volumeSlider;
+    [Header("Audio Settings")] public Slider volumeSlider;
     public AudioSource audioSource;
 
 
@@ -47,7 +45,6 @@ public class ui : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-   
 
     public void ShowMainMenu()
     {
@@ -78,7 +75,6 @@ public class ui : MonoBehaviour
         PausePanel.SetActive(false);
         howToPlay.SetActive(false);
         credits.SetActive(false);
-
     }
 
     public void ShowHowToPlay()
@@ -90,11 +86,13 @@ public class ui : MonoBehaviour
         howToPlay.SetActive(false);
         credits.SetActive(false);
     }
+
     public void ExitGame()
     {
         Debug.Log("Quitting game...");
         Application.Quit();
     }
+
     public void BackToMainMenu()
     {
         mainMenu.SetActive(true);
@@ -104,6 +102,7 @@ public class ui : MonoBehaviour
         howToPlay.SetActive(false);
         credits.SetActive(false);
     }
+
     public void PausePanels()
     {
         mainMenu.SetActive(false);
@@ -116,7 +115,8 @@ public class ui : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
     }
-    public void HowToPlay ()
+
+    public void HowToPlay()
     {
         mainMenu.SetActive(false);
         optionsPanel.SetActive(false);
@@ -135,12 +135,14 @@ public class ui : MonoBehaviour
         howToPlay.SetActive(false);
         credits.SetActive(true);
     }
+
     public void ResumeGame()
     {
         PausePanel.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
+
     public void ButtomResumeGame()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -155,6 +157,7 @@ public class ui : MonoBehaviour
             }
         }
     }
+
     public void BackToOptionsPanel()
     {
         mainMenu.SetActive(false);
@@ -167,10 +170,9 @@ public class ui : MonoBehaviour
 
     public void NextScene()
     {
-       
         panels[currentIndex].SetActive(false);
 
-        
+
         currentIndex++;
 
         if (currentIndex < panels.Length)
@@ -179,15 +181,14 @@ public class ui : MonoBehaviour
         }
         else
         {
-
             StartGameDirect();
-
-
-
         }
     }
 
-
-
+    public void StartMainGame()
+    {
+        isRestart = true;
+        SceneManager.LoadScene("MainGame");
+        
+    }
 }
-   
