@@ -12,7 +12,6 @@ public class ui : MonoBehaviour
     public GameObject PausePanel;
     public GameObject howToPlay;
     public GameObject credits;
-    public GameObject[] panels;
     private int currentIndex = 0;
 
     public Button scene;
@@ -24,8 +23,7 @@ public class ui : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < panels.Length; i++)
-            panels[i].SetActive(i == 0);
+
 
         float savedVolume = PlayerPrefs.GetFloat("MasterVolume", 0.5f);
         volumeSlider.value = savedVolume;
@@ -167,24 +165,7 @@ public class ui : MonoBehaviour
         howToPlay.SetActive(false);
         credits.SetActive(false);
     }
-
-    public void NextScene()
-    {
-        panels[currentIndex].SetActive(false);
-
-
-        currentIndex++;
-
-        if (currentIndex < panels.Length)
-        {
-            panels[currentIndex].SetActive(true);
-        }
-        else
-        {
-            StartGameDirect();
-        }
-    }
-
+    
     public void StartMainGame()
     {
         isRestart = true;
