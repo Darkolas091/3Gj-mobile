@@ -4257,6 +4257,12 @@ MonoBehaviour:
   PausePanel: {fileID: 55017688}
   howToPlay: {fileID: 530459785}
   credits: {fileID: 177903996}
+  panels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  scene: {fileID: 0}
   volumeSlider: {fileID: 652237279}
   audioSource: {fileID: 623735209}
 --- !u!4 &1633176136
