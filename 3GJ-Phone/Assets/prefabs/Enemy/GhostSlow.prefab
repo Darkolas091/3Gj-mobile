@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 2910756985882054132}
   - component: {fileID: 5550073274703249632}
   m_Layer: 0
-  m_Name: Ghost
+  m_Name: GhostSlow
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7fe08bb9504eadafaa8ba0e264deb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostAI
-  movementSpeed: 5
+  movementSpeed: 2.5
   detectionRadius: 10
   damage: 1
 --- !u!114 &6706733710346654676
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e475667419341249abcae0c4a6e3dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxhealth: 5
+  maxhealth: 9
   healthBar: {fileID: 8295655933780195861}
 --- !u!114 &7407158559808230832
 MonoBehaviour:
@@ -494,7 +494,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 79a806b7737fe674bb4547de8da5f394, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.32796016, g: 1, b: 0.2688679, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
