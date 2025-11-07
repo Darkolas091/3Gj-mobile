@@ -7,6 +7,12 @@ public class GhostAI : MonoBehaviour
     [SerializeField] private int damage = 1;
 
     private Transform target;
+    private Camera mainCamera;
+
+    private void Start()
+    {
+        mainCamera = Camera.main;
+    }
 
     private void Update()
     {
@@ -17,7 +23,12 @@ public class GhostAI : MonoBehaviour
                 transform.position,
                 target.position,
                 movementSpeed * Time.deltaTime);
-            transform.LookAt(target.position);
+        }
+
+        // Always look at camera
+        if (mainCamera != null)
+        {
+            transform.LookAt(mainCamera.transform);
         }
     }
 
