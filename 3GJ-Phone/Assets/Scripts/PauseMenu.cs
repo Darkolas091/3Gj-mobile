@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuPanel;
+    [SerializeField] private GameObject settingsMenuPanel;
     [SerializeField] private bool isPaused = false;
 
     private void Start()
@@ -28,6 +29,7 @@ public class PauseMenu : MonoBehaviour
         
         if (pauseMenuPanel != null)
         {
+            settingsMenuPanel.SetActive(false);
             pauseMenuPanel.SetActive(isPaused);
         }
         
@@ -36,6 +38,17 @@ public class PauseMenu : MonoBehaviour
         
         // Play UI sound
         SoundEffectManager.PlaySoundEffect(isPaused ? "PauseOpen" : "PauseClose");
+    }
+    
+    public void ToggleSettingsMenu()
+    {
+        if (settingsMenuPanel != null)
+        {
+            bool isActive = settingsMenuPanel.activeSelf;
+            settingsMenuPanel.SetActive(!isActive);
+        }
+        
+        SoundEffectManager.PlaySoundEffect("UISelect");
     }
 
     public void ResumeGame()
