@@ -587,6 +587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterController
   moveActionToUse: {fileID: 8529957251368544601, guid: 3c9a4c47e9991b64185c2a2cce94ae9d, type: 3}
   speed: 10
+  animator: {fileID: 0}
 --- !u!114 &31616123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13078,83 +13079,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1099746804
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1099746807}
-  - component: {fileID: 1099746806}
-  - component: {fileID: 1099746805}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1099746805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099746804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2549360f844cfa749ba5b51d6a4d1a69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterController
-  moveActionToUse: {fileID: 8529957251368544601, guid: 3c9a4c47e9991b64185c2a2cce94ae9d, type: 3}
-  speed: 10
---- !u!114 &1099746806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099746804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 3c9a4c47e9991b64185c2a2cce94ae9d, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerMain
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!4 &1099746807
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099746804}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1103325228
 GameObject:
   m_ObjectHideFlags: 0
@@ -15712,8 +15636,8 @@ MonoBehaviour:
   gridStartPosition4: {x: 14, y: 0, z: 3}
   grass: {fileID: 2299730254013291352, guid: 8dae87f06e025e347ad328cfa0ce9a7e, type: 3}
   field: {fileID: 5226427193694511950, guid: 87dc6b129547af848a937c50555b826b, type: 3}
-  premiumField: {fileID: 0}
-  turretPrefab: {fileID: 0}
+  premiumField: {fileID: 5226427193694511950, guid: 49468572381ec4c43b7fcdfa9e19eae1, type: 3}
+  turretPrefab: {fileID: 1414153232260993831, guid: f49c46b84c499cf4e80f28959b019cdb, type: 3}
   actionButton: {fileID: 1499047948}
   buttonText: {fileID: 1445888577}
   player: {fileID: 31616120}
@@ -26090,7 +26014,6 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
-  - {fileID: 1099746807}
   - {fileID: 31616120}
   - {fileID: 2067222907}
   - {fileID: 1507779021}
