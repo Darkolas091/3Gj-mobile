@@ -16,7 +16,6 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private float meleeRange = 2f;
     [SerializeField] private float meleeCooldown = 0.8f;
     [SerializeField] private int meleeDamage = 2;
-    [SerializeField] private LayerMask enemyLayer;
     
     [Header("VFX")]
     [SerializeField] private GameObject muzzleFlashVFX;
