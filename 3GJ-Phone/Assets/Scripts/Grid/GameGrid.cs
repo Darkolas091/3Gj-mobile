@@ -72,11 +72,17 @@ public class GameGrid : MonoBehaviour
     private void CheckTileUnderPlayer()
     {
         Ray ray = new Ray(player.position + Vector3.up * 0.5f, Vector3.down);
+        Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.blue);
+       
 
         if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance))
         {
             if (hit.collider.CompareTag("grid"))
             {
+
+               
+                Debug.DrawLine(ray.origin, hit.point, Color.yellow);
+
                 if (selectedTile != hit.collider.gameObject)
                 {
                     
